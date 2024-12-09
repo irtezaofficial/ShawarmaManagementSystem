@@ -65,4 +65,4 @@ To get started, ensure you have the following tools installed:
 
 1. **Clone the repository** to your local machine:
    ```bash
-   git clone https://github.com/irtezaofficial/shawarma-management-system.git
+   git clone https://github.com/irtezaofficial/ShawarmaManagementSystem.git
