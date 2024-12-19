@@ -2,6 +2,11 @@
 {
     internal class DeliveredState : IOrderState
     {
+        public string GetOrderState()
+        {
+            return "Delivered";
+        }
+
         public void ProcessOrder(Order order)
         {
             MessageBox.Show("Order has already been delivered, can't process it.");

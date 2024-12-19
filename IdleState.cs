@@ -1,15 +1,16 @@
 ﻿namespace ShawarmaManagementSystem
 {
-    internal class ProcessingState : IOrderState
+    internal class IdleState : IOrderState
     {
         public string GetOrderState()
         {
-            return "Processing";
+            return "Idle";
         }
 
         public void ProcessOrder(Order order)
         {
-            MessageBox.Show("Order is already being processed.");
+            order.SetOrderState(new ProcessingState());
+            MessageBox.Show("Order now being processed.");
         }
 
         public void DeliverOrder(Order order)

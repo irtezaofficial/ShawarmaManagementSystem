@@ -42,6 +42,14 @@
             GetTotalButton = new Button();
             TotalTextBox = new TextBox();
             label7 = new Label();
+            OrderBtn = new Button();
+            PaymentComboBox = new ComboBox();
+            label6 = new Label();
+            label8 = new Label();
+            StatusTextBox = new TextBox();
+            CancelButton = new Button();
+            DeliveredButton = new Button();
+            CompletedButton = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -175,11 +183,104 @@
             label7.TabIndex = 38;
             label7.Text = "Total:";
             // 
+            // OrderBtn
+            // 
+            OrderBtn.Font = new Font("Segoe UI", 20F);
+            OrderBtn.Location = new Point(748, 431);
+            OrderBtn.Name = "OrderBtn";
+            OrderBtn.Size = new Size(149, 45);
+            OrderBtn.TabIndex = 40;
+            OrderBtn.Text = "Order";
+            OrderBtn.UseVisualStyleBackColor = true;
+            OrderBtn.Click += OrderBtn_Click;
+            // 
+            // PaymentComboBox
+            // 
+            PaymentComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            PaymentComboBox.Font = new Font("Segoe UI", 20F);
+            PaymentComboBox.FormattingEnabled = true;
+            PaymentComboBox.Items.AddRange(new object[] { "Card", "Cash" });
+            PaymentComboBox.Location = new Point(589, 157);
+            PaymentComboBox.Name = "PaymentComboBox";
+            PaymentComboBox.Size = new Size(202, 45);
+            PaymentComboBox.TabIndex = 42;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 20F);
+            label6.Location = new Point(395, 160);
+            label6.Name = "label6";
+            label6.Size = new Size(188, 37);
+            label6.TabIndex = 41;
+            label6.Text = "Payment Type:";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 20F);
+            label8.Location = new Point(395, 236);
+            label8.Name = "label8";
+            label8.Size = new Size(169, 37);
+            label8.TabIndex = 43;
+            label8.Text = "Order Status:";
+            // 
+            // StatusTextBox
+            // 
+            StatusTextBox.Enabled = false;
+            StatusTextBox.Font = new Font("Segoe UI", 20F);
+            StatusTextBox.Location = new Point(579, 236);
+            StatusTextBox.Name = "StatusTextBox";
+            StatusTextBox.ReadOnly = true;
+            StatusTextBox.Size = new Size(188, 43);
+            StatusTextBox.TabIndex = 45;
+            // 
+            // CancelButton
+            // 
+            CancelButton.Font = new Font("Segoe UI", 20F);
+            CancelButton.Location = new Point(384, 303);
+            CancelButton.Name = "CancelButton";
+            CancelButton.Size = new Size(149, 45);
+            CancelButton.TabIndex = 46;
+            CancelButton.Text = "Cancel";
+            CancelButton.UseVisualStyleBackColor = true;
+            CancelButton.Click += CancelButton_Click;
+            // 
+            // DeliveredButton
+            // 
+            DeliveredButton.Font = new Font("Segoe UI", 20F);
+            DeliveredButton.Location = new Point(579, 303);
+            DeliveredButton.Name = "DeliveredButton";
+            DeliveredButton.Size = new Size(149, 45);
+            DeliveredButton.TabIndex = 47;
+            DeliveredButton.Text = "Delivered";
+            DeliveredButton.UseVisualStyleBackColor = true;
+            DeliveredButton.Click += DeliveredButton_Click;
+            // 
+            // CompletedButton
+            // 
+            CompletedButton.Font = new Font("Segoe UI", 20F);
+            CompletedButton.Location = new Point(759, 303);
+            CompletedButton.Name = "CompletedButton";
+            CompletedButton.Size = new Size(149, 45);
+            CompletedButton.TabIndex = 48;
+            CompletedButton.Text = "Completed";
+            CompletedButton.UseVisualStyleBackColor = true;
+            CompletedButton.Click += CompletedButton_Click;
+            // 
             // OrderForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(945, 500);
+            Controls.Add(CompletedButton);
+            Controls.Add(DeliveredButton);
+            Controls.Add(CancelButton);
+            Controls.Add(StatusTextBox);
+            Controls.Add(label8);
+            Controls.Add(PaymentComboBox);
+            Controls.Add(label6);
+            Controls.Add(OrderBtn);
             Controls.Add(TotalTextBox);
             Controls.Add(label7);
             Controls.Add(GetTotalButton);
@@ -195,6 +296,7 @@
             Controls.Add(pictureBox1);
             Name = "OrderForm";
             Text = "OrderForm";
+            Load += OrderForm_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -215,5 +317,13 @@
         private Button GetTotalButton;
         private TextBox TotalTextBox;
         private Label label7;
+        private Button OrderBtn;
+        private ComboBox PaymentComboBox;
+        private Label label6;
+        private Label label8;
+        private TextBox StatusTextBox;
+        private Button CancelButton;
+        private Button DeliveredButton;
+        private Button CompletedButton;
     }
 }

@@ -2,6 +2,11 @@
 {
     internal class CancelledState : IOrderState
     {
+        public string GetOrderState()
+        {
+            return "Cancelled";
+        }
+
         public void ProcessOrder(Order order)
         {
             MessageBox.Show("Cancelled orders can't be processed.");

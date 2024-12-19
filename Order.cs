@@ -5,12 +5,17 @@
         private IOrderState _orderState;
         public Order()
         {
-            _orderState = new ProcessingState();
+            _orderState = new IdleState();
         }
 
         public void SetOrderState(IOrderState newState)
         {
             _orderState = newState;
+        }
+
+        public string GetOrderState()
+        {
+            return _orderState.GetOrderState();
         }
 
         public void ProcessOrder()

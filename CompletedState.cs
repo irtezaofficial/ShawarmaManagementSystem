@@ -2,6 +2,11 @@
 {
     internal class CompletedState : IOrderState
     {
+        public string GetOrderState()
+        {
+            return "Completed";
+        }
+
         public void ProcessOrder(Order order)
         {
             MessageBox.Show("Order is already completed.");
