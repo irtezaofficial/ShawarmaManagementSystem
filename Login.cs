@@ -30,8 +30,8 @@
                     else
                     {
                         MessageBox.Show("Login Successfully As User..");
-                        //AddOrder panel = new AddOrder();
-                        //panel.Show();
+                        OrderForm panel = new OrderForm();
+                        panel.Show();
                     }
                     this.Hide();
                 }

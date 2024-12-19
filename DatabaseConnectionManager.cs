@@ -13,7 +13,7 @@ namespace ShawarmaManagementSystem
         private DatabaseConnectionManager()
         {
             // Initialize the connection
-            _connection = new SqlConnection(@"Data Source=(local);Initial Catalog=ShawarmaManagmentSystem;Integrated Security=True;TrustServerCertificate=True");
+            _connection = new SqlConnection(@"Data Source=(local);Integrated Security=True;User Id=DESKTOP-7BJV5JU\Irteza;TrustServerCertificate=True;");
         }
 
         // Public method to provide access to the instance
