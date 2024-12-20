@@ -8,7 +8,7 @@
 
         private ShawarmaManager()
         {
-            _dbAdapter = new DatabaseAdapter();
+            _dbAdapter = new DatabaseAdaptee();
             _shawarmas = [];
         }
 

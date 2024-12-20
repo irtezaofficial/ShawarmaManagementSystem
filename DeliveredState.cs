@@ -7,22 +7,22 @@
             return "Delivered";
         }
 
-        public void ProcessOrder(Order order)
+        public void ProcessOrder(OrderContext order)
         {
             MessageBox.Show("Order has already been delivered, can't process it.");
         }
 
-        public void DeliverOrder(Order order)
+        public void DeliverOrder(OrderContext order)
         {
             MessageBox.Show("Order is already delivered.");
         }
 
-        public void CancelOrder(Order order)
+        public void CancelOrder(OrderContext order)
         {
             MessageBox.Show("Order can't be cancelled after delivery.");
         }
 
-        public void CompleteOrder(Order order)
+        public void CompleteOrder(OrderContext order)
         {
             order.SetOrderState(new CompletedState());
             MessageBox.Show("Order is now completed.");

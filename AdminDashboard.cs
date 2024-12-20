@@ -11,7 +11,7 @@ namespace ShawarmaManagementSystem
         public AdminDashboard()
         {
             _manager = ShawarmaManager.Instance();
-            _dbAdapter = new DatabaseAdapter();
+            _dbAdapter = new DatabaseAdaptee();
             InitializeComponent();
             LoadShawarmaList();
         }

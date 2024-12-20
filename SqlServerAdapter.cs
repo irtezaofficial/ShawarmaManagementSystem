@@ -4,23 +4,13 @@ using System.Data;
 
 namespace ShawarmaManagementSystem
 {
-    internal class SqlServer
+    internal class SqlServerAdapter
     {
         private SqlConnection _connection;
 
-        public SqlServer()
+        public SqlServerAdapter()
         {
             _connection = DatabaseConnectionManager.Instance.GetConnection();
-        }
-
-        public bool Validation(string query)
-        {
-            _connection.Open();
-            SqlCommand cmd = new(query, _connection);
-            SqlDataReader dr = cmd.ExecuteReader();
-            bool result = dr.Read();
-            _connection.Close();
-            return result;
         }
 
         public string Execution(string query)
@@ -70,42 +60,6 @@ namespace ShawarmaManagementSystem
             return item;
         }
 
-        public string? ExecuteScalarToString(string query)
-        {
-            try
-            {
-                _connection.Open();
-                using SqlCommand cmd = new SqlCommand(query, _connection);
-                return cmd.ExecuteScalar().ToString();
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-            finally
-            {
-                _connection.Close();
-            }
-        }
-
-        public object ExecuteScalar(string query)
-        {
-            try
-            {
-                _connection.Open();
-                using SqlCommand cmd = new SqlCommand(query, _connection);
-                return cmd.ExecuteScalar();
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-            finally
-            {
-                _connection.Close();
-            }
-        }
-
         public string ExecuteSingleQuery(string query)
         {
             Dictionary<string, object>? result = null;
@@ -135,38 +89,6 @@ namespace ShawarmaManagementSystem
             }
 
             return JsonConvert.SerializeObject(result);
-        }
-
-        public List<string> ExecuteSelectQuery(string query)
-        {
-            List<string> results = new();
-
-            try
-            {
-                _connection.Open();
-
-                using SqlCommand cmd = new(query, _connection);
-                using SqlDataReader dr = cmd.ExecuteReader();
-                while (dr.Read())
-                {
-                    Dictionary<string, object> row = new();
-                    for (int i = 0; i < dr.FieldCount; i++)
-                    {
-                        row[dr.GetName(i)] = dr.GetValue(i);
-                    }
-                    results.Add(JsonConvert.SerializeObject(row));
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error: {ex.Message}");
-            }
-            finally
-            {
-                _connection.Close();
-            }
-
-            return results;
         }
     }
 }

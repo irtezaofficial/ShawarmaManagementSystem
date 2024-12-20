@@ -1,9 +1,9 @@
 ﻿namespace ShawarmaManagementSystem
 {
-    internal class Order
+    internal class OrderContext
     {
         private IOrderState _orderState;
-        public Order()
+        public OrderContext()
         {
             _orderState = new IdleState();
         }

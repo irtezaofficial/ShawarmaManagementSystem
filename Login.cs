@@ -7,7 +7,7 @@
         public Login()
         {
             InitializeComponent();
-            _databaseAdapter = new DatabaseAdapter();
+            _databaseAdapter = new DatabaseAdaptee();
             _loginService = new LoginProxy(new LoginService(_databaseAdapter));
         }
 

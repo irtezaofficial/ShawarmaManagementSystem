@@ -7,22 +7,22 @@
             return "Cancelled";
         }
 
-        public void ProcessOrder(Order order)
+        public void ProcessOrder(OrderContext order)
         {
             MessageBox.Show("Cancelled orders can't be processed.");
         }
 
-        public void DeliverOrder(Order order)
+        public void DeliverOrder(OrderContext order)
         {
             MessageBox.Show("Cancelled orders can't be delivered.");
         }
 
-        public void CancelOrder(Order order)
+        public void CancelOrder(OrderContext order)
         {
             MessageBox.Show("Order is already cancelled.");
         }
 
-        public void CompleteOrder(Order order)
+        public void CompleteOrder(OrderContext order)
         {
             MessageBox.Show("Cancelled orders can't be completed.");
         }

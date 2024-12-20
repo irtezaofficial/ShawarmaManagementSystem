@@ -6,7 +6,7 @@ namespace ShawarmaManagementSystem
     {
         public int totalQuantity = 0;
         private List<string> Items;
-        private Order _order;
+        private OrderContext _order;
 
         private readonly IDatabaseAdapter _dbAdapter;
 
@@ -14,8 +14,8 @@ namespace ShawarmaManagementSystem
         {
             InitializeComponent();
             Items = new List<string>();
-            _order = new Order();
-            _dbAdapter = new DatabaseAdapter();
+            _order = new OrderContext();
+            _dbAdapter = new DatabaseAdaptee();
         }
 
         private void NameComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -51,7 +51,7 @@ namespace ShawarmaManagementSystem
                 QntyTextBox.Clear();
                 PriceTextBox.Clear();
                 string query = "Select Name from Shawarma where Type = '" + TypeComboBox.SelectedItem.ToString() + "' ";
-                Items = _dbAdapter.GetInList(query);
+                Items = _dbAdapter.GetShawarmaNameList(query);
                 foreach (string item in Items)
                 {
                     NameComboBox.Items.Add(item);
@@ -95,7 +95,7 @@ namespace ShawarmaManagementSystem
                 string query1 = $"Update Shawarma set Quantity = {quantity} where Name = '{NameComboBox.Text}';";
                 _dbAdapter.Executecmd(query1);
 
-                _order.SetOrderState(new ProcessingState());
+                _order.ProcessOrder();
                 StatusTextBox.Text = _order.GetOrderState();
             }
             else
